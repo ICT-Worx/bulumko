@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Process" table="process" catalog="isodb" optimistic-lock="version">
+        <id name="processId" type="java.lang.Integer">
+            <column name="Process_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="isoStandard" class="Model.IsoStandard" fetch="select">
+            <column name="ISO_Standard_ISO_Standard_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="processdata" class="Model.Processdata" fetch="select">
+            <column name="ProcessData_ProcessData_id" not-null="true" />
+        </many-to-one>
+        <property name="processRiskProcessRiskId" type="int">
+            <column name="ProcessRisk_ProcessRisk_id" not-null="true" />
+        </property>
+        <property name="processType" type="string">
+            <column name="Process_type" length="30" not-null="true" />
+        </property>
+        <property name="periodPeriodId" type="int">
+            <column name="Period_Period_id" not-null="true" />
+        </property>
+        <set name="measurables" table="measurable" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Process_Process_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Measurable" />
+        </set>
+        <set name="instructions" table="instruction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="process_Process_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Instruction" />
+        </set>
+        <set name="goals" table="goal" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Process_Process_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Goal" />
+        </set>
+        <one-to-one name="processrisk" class="Model.Processrisk"></one-to-one>
+    </class>
+</hibernate-mapping>

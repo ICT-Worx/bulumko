@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Contactdetail" table="contactdetail" catalog="isodb" optimistic-lock="version">
+        <id name="contactDetailId" type="java.lang.Integer">
+            <column name="ContactDetail_id" />
+            <generator class="identity" />
+        </id>
+        <property name="contactDetailCellNumber" type="string">
+            <column name="ContactDetail_cell_number" length="13" not-null="true" />
+        </property>
+        <property name="contactDetailEmailAddress" type="string">
+            <column name="ContactDetail_email_address" length="25" not-null="true" />
+        </property>
+        <property name="contactDetailAlternativeMail" type="string">
+            <column name="ContactDetail_alternative_mail" length="25" />
+        </property>
+        <property name="contactDetailAlternativeCellNumber" type="string">
+            <column name="`ContactDetail_alternative_cell number`" length="45" />
+        </property>
+        <set name="employees" table="employee" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ContactDetail_ContactDetail_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Employee" />
+        </set>
+        <set name="authors" table="author" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ContactDetail_ContactDetail_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Author" />
+        </set>
+        <set name="auditors" table="auditor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ContactDetail_ContactDetail_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Auditor" />
+        </set>
+    </class>
+</hibernate-mapping>

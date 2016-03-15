@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Period" table="period" catalog="isodb" optimistic-lock="version">
+        <id name="periodId" type="java.lang.Integer">
+            <column name="Period_id" />
+            <generator class="identity" />
+        </id>
+        <property name="periodStartDate" type="date">
+            <column name="Period_start_date" length="10" not-null="true" />
+        </property>
+        <property name="periodEndDate" type="date">
+            <column name="Period_end_date" length="10" not-null="true" />
+        </property>
+        <property name="periodCompletionPercent" type="double">
+            <column name="Period_completion_percent" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

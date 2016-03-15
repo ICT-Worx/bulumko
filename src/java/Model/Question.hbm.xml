@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Question" table="question" catalog="isodb" optimistic-lock="version">
+        <id name="questionId" type="java.lang.Integer">
+            <column name="Question_id" />
+            <generator class="identity" />
+        </id>
+        <property name="questionData" type="string">
+            <column name="Question_data" length="100" not-null="true" />
+        </property>
+        <property name="tabTabId" type="int">
+            <column name="Tab_Tab_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

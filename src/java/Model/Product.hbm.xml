@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Product" table="product" catalog="isodb" optimistic-lock="version">
+        <id name="productId" type="java.lang.Integer">
+            <column name="Product_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customer" class="Model.Customer" fetch="select">
+            <column name="Customer_Customer_id" not-null="true" />
+        </many-to-one>
+        <property name="productName" type="string">
+            <column name="Product_name" length="45" not-null="true" />
+        </property>
+        <property name="productPrice" type="double">
+            <column name="Product_price" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

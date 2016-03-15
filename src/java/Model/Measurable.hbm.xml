@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Measurable" table="measurable" catalog="isodb" optimistic-lock="version">
+        <id name="measurableId" type="java.lang.Integer">
+            <column name="Measurable_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="process" class="Model.Process" fetch="select">
+            <column name="Process_Process_id" not-null="true" />
+        </many-to-one>
+        <property name="measurableDecription" type="string">
+            <column name="Measurable_decription" length="45" not-null="true" />
+        </property>
+        <property name="measurableType" type="string">
+            <column name="Measurable_type" length="50" not-null="true" />
+        </property>
+        <property name="measurableOwner" type="java.lang.Integer">
+            <column name="Measurable_owner" />
+        </property>
+        <property name="measurableDocuments" type="binary">
+            <column name="Measurable_documents" />
+        </property>
+        <set name="customers" table="customer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Measurable_Measurable_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Customer" />
+        </set>
+    </class>
+</hibernate-mapping>

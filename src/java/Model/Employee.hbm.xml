@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Employee" table="employee" catalog="isodb" optimistic-lock="version">
+        <id name="employeeId" type="java.lang.Integer">
+            <column name="Employee_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="address" class="Model.Address" fetch="select">
+            <column name="Address_Address_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="contactdetail" class="Model.Contactdetail" fetch="select">
+            <column name="ContactDetail_ContactDetail_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="job" class="Model.Job" fetch="select">
+            <column name="Job_Job_id" not-null="true" />
+        </many-to-one>
+        <property name="employeeContract" type="binary">
+            <column name="Employee_contract" not-null="true" />
+        </property>
+        <property name="employeeDocuments" type="binary">
+            <column name="Employee_documents" not-null="true" />
+        </property>
+        <property name="informationInformationId" type="int">
+            <column name="Information_Information_id" not-null="true" />
+        </property>
+        <set name="managers" table="manager" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Employee_Employee_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Manager" />
+        </set>
+    </class>
+</hibernate-mapping>

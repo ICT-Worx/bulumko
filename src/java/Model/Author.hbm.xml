@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Author" table="author" catalog="isodb" optimistic-lock="version">
+        <id name="authorId" type="java.lang.Integer">
+            <column name="Author_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="address" class="Model.Address" fetch="select">
+            <column name="Address_Address_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="contactdetail" class="Model.Contactdetail" fetch="select">
+            <column name="ContactDetail_ContactDetail_id" not-null="true" />
+        </many-to-one>
+        <property name="informationInformationId" type="int">
+            <column name="Information_Information_id" not-null="true" />
+        </property>
+        <set name="instructions" table="instruction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Author_Author_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Instruction" />
+        </set>
+    </class>
+</hibernate-mapping>

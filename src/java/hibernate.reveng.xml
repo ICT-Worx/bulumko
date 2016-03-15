@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="isodb"/>
+  <table-filter match-name="auditor"/>
+  <table-filter match-name="product"/>
+  <table-filter match-name="author"/>
+  <table-filter match-name="period"/>
+  <table-filter match-name="job"/>
+  <table-filter match-name="question"/>
+  <table-filter match-name="iso_standard"/>
+  <table-filter match-name="manager"/>
+  <table-filter match-name="supplier"/>
+  <table-filter match-name="address"/>
+  <table-filter match-name="department"/>
+  <table-filter match-name="contactdetail"/>
+  <table-filter match-name="record"/>
+  <table-filter match-name="customer"/>
+  <table-filter match-name="processdata"/>
+  <table-filter match-name="answer"/>
+  <table-filter match-name="audits"/>
+  <table-filter match-name="measurable"/>
+  <table-filter match-name="information"/>
+  <table-filter match-name="tab"/>
+  <table-filter match-name="goal"/>
+  <table-filter match-name="instruction"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="processrisk"/>
+  <table-filter match-name="process"/>
+  <table-filter match-name="employee"/>
+</hibernate-reverse-engineering>

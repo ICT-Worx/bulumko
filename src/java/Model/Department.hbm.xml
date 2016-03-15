@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Department" table="department" catalog="isodb" optimistic-lock="version">
+        <id name="departmentId" type="java.lang.Integer">
+            <column name="Department_id" />
+            <generator class="identity" />
+        </id>
+        <property name="departmentName" type="int">
+            <column name="Department_name" not-null="true" />
+        </property>
+        <property name="departmentManagerId" type="int">
+            <column name="Department_manager_id" not-null="true" />
+        </property>
+        <set name="goals" table="goal" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Department_Department_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Goal" />
+        </set>
+        <set name="jobs" table="job" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Department_Department_id" />
+            </key>
+            <one-to-many class="Model.Job" />
+        </set>
+    </class>
+</hibernate-mapping>

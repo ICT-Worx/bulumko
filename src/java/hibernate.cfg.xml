@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost/isodb</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">P@ssw0rd</property>
+    <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+    <property name="hibernate.c3p0.min_size">7</property>
+    <property name="hibernate.c3p0.max_size">53</property>
+    <property name="hibernate.c3p0.timeout">100</property>
+    <property name="hibernate.c3p0.max_statements">50</property>
+    <property name="hibernate.c3p0.idle_test_period">1000</property>
+    <property name="hibernate.c3p0.validate">true</property>
+    <mapping resource="Model/Instruction.hbm.xml"/>
+    <mapping resource="Model/Answer.hbm.xml"/>
+    <mapping resource="Model/Audits.hbm.xml"/>
+    <mapping resource="Model/Information.hbm.xml"/>
+    <mapping resource="Model/Employee.hbm.xml"/>
+    <mapping resource="Model/Processdata.hbm.xml"/>
+    <mapping resource="Model/Author.hbm.xml"/>
+    <mapping resource="Model/Tab.hbm.xml"/>
+    <mapping resource="Model/Supplier.hbm.xml"/>
+    <mapping resource="Model/Process.hbm.xml"/>
+    <mapping resource="Model/Processrisk.hbm.xml"/>
+    <mapping resource="Model/Record.hbm.xml"/>
+    <mapping resource="Model/Goal.hbm.xml"/>
+    <mapping resource="Model/Manager.hbm.xml"/>
+    <mapping resource="Model/Measurable.hbm.xml"/>
+    <mapping resource="Model/Period.hbm.xml"/>
+    <mapping resource="Model/Job.hbm.xml"/>
+    <mapping resource="Model/Product.hbm.xml"/>
+    <mapping resource="Model/Department.hbm.xml"/>
+    <mapping resource="Model/IsoStandard.hbm.xml"/>
+    <mapping resource="Model/Contactdetail.hbm.xml"/>
+    <mapping resource="Model/Question.hbm.xml"/>
+    <mapping resource="Model/Auditor.hbm.xml"/>
+    <mapping resource="Model/User.hbm.xml"/>
+    <mapping resource="Model/Address.hbm.xml"/>
+    <mapping resource="Model/Customer.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

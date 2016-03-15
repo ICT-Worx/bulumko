@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Audits" table="audits" catalog="isodb" optimistic-lock="version">
+        <id name="auditsId" type="java.lang.Integer">
+            <column name="Audits_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="auditor" class="Model.Auditor" fetch="select">
+            <column name="Auditor_Auditor_id" not-null="true" />
+        </many-to-one>
+        <set name="suppliers" table="supplier" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Audits_Audits_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Supplier" />
+        </set>
+    </class>
+</hibernate-mapping>

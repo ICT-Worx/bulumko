@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Address" table="address" catalog="isodb" optimistic-lock="version">
+        <id name="addressId" type="java.lang.Integer">
+            <column name="Address_id" />
+            <generator class="identity" />
+        </id>
+        <property name="addressStreetNumber" type="string">
+            <column name="Address_street_number" length="10" not-null="true" />
+        </property>
+        <property name="addressStreetName" type="string">
+            <column name="Address_street_name" length="20" not-null="true" />
+        </property>
+        <property name="addressSurbarb" type="string">
+            <column name="Address_surbarb" length="30" not-null="true" />
+        </property>
+        <property name="addressCity" type="string">
+            <column name="Address_city" length="30" not-null="true" />
+        </property>
+        <property name="addressProvince" type="string">
+            <column name="Address_province" length="45" not-null="true" />
+        </property>
+        <property name="addressCountry" type="string">
+            <column name="Address_country" length="45" not-null="true" />
+        </property>
+        <set name="authors" table="author" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Address_Address_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Author" />
+        </set>
+        <set name="customers" table="customer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Address_Address_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Customer" />
+        </set>
+        <set name="auditors" table="auditor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Address_Address_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Auditor" />
+        </set>
+        <set name="employees" table="employee" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Address_Address_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Employee" />
+        </set>
+    </class>
+</hibernate-mapping>

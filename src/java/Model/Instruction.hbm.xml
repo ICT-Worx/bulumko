@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Instruction" table="instruction" catalog="isodb" optimistic-lock="version">
+        <id name="instructionId" type="int">
+            <column name="Instruction_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="author" class="Model.Author" fetch="select">
+            <column name="Author_Author_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="process" class="Model.Process" fetch="select">
+            <column name="process_Process_id" not-null="true" />
+        </many-to-one>
+        <property name="instructionOldNumber" type="string">
+            <column name="Instruction_old_number" length="45" />
+        </property>
+        <property name="instructionDescription" type="string">
+            <column name="Instruction_description" length="45" />
+        </property>
+        <property name="instructionArchivedPeriod" type="string">
+            <column name="Instruction_archived_period" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

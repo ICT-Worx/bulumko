@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Processrisk" table="processrisk" catalog="isodb" optimistic-lock="version">
+        <id name="processRiskId" type="java.lang.Integer">
+            <column name="ProcessRisk_id" />
+            <generator class="foreign">
+                <param name="property">process</param>
+            </generator>
+        </id>
+        <one-to-one name="process" class="Model.Process" constrained="true"></one-to-one>
+        <property name="processRiskDescription" type="string">
+            <column name="ProcessRisk_description" length="50" not-null="true" />
+        </property>
+        <property name="processRiskType" type="string">
+            <column name="ProcessRisk_type" length="45" not-null="true" />
+        </property>
+        <property name="processRiskResponse" type="string">
+            <column name="ProcessRisk_response" length="50" not-null="true" />
+        </property>
+        <property name="processRiskDueDate" type="date">
+            <column name="ProcessRisk_due_date" length="10" />
+        </property>
+        <property name="processRiskClosedDate" type="date">
+            <column name="ProcessRisk_closed_date" length="10" />
+        </property>
+        <property name="processRiskCurrentControls" type="string">
+            <column name="ProcessRisk_current_controls" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2016 8:50:49 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Processdata" table="processdata" catalog="isodb" optimistic-lock="version">
+        <id name="processDataId" type="java.lang.Integer">
+            <column name="ProcessData_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="record" class="Model.Record" fetch="select">
+            <column name="Record_Record_id" not-null="true" />
+        </many-to-one>
+        <property name="processDataDescription" type="string">
+            <column name="ProcessData_description" length="350" />
+        </property>
+        <property name="processDataReviewFrequency" type="string">
+            <column name="ProcessData_review_frequency" length="45" />
+        </property>
+        <property name="processDataArchivePeriod" type="string">
+            <column name="ProcessData_archive_period" length="45" />
+        </property>
+        <property name="processDataAuth" type="java.lang.Integer">
+            <column name="ProcessData_auth" />
+        </property>
+        <property name="processDataDocument" type="binary">
+            <column name="ProcessData_document" />
+        </property>
+        <set name="processes" table="process" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ProcessData_ProcessData_id" not-null="true" />
+            </key>
+            <one-to-many class="Model.Process" />
+        </set>
+    </class>
+</hibernate-mapping>
